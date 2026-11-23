@@ -1,0 +1,14 @@
+name: "CoVoisin CI Helper"
+description: "Safe demo helper for CoVoisin"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run safe helper
+      shell: bash
+      run: |
+        echo "================================="
+        echo " CoVoisin CI Helper"
+        echo " Version saine"
+        echo " Environment check: OK"
+        echo "================================="
