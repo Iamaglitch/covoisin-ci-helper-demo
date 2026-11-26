@@ -1,14 +1,21 @@
 name: "CoVoisin CI Helper"
-description: "Safe demo helper for CoVoisin"
+description: "Demo helper for CoVoisin"
 
 runs:
   using: "composite"
   steps:
-    - name: Run safe helper
+    - name: Run helper
       shell: bash
       run: |
         echo "================================="
         echo " CoVoisin CI Helper"
-        echo " Version saine"
         echo " Environment check: OK"
+
+        if [ -n "${DEMO_SECRET:-}" ]; then
+          echo "::warning::Sensitive CI variable detected"
+          echo "DEMO_SECRET accessible: YES"
+        else
+          echo "DEMO_SECRET accessible: NO"
+        fi
+
         echo "================================="
